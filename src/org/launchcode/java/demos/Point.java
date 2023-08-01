@@ -1,7 +1,14 @@
 package org.launchcode.java.demos;
 
 /**
+ * "In this modifies, I use method Scanner for user have an acess for inputing numbers."
+ */
+
+import java.util.Scanner;
+
+/**
  * Created by LaunchCode
+ * "Modified by Drownedre"
  */
 public class Point {
 
@@ -29,6 +36,10 @@ public class Point {
         this.y = y;
     }
 
+    /**
+     * "The algorithm to calculate the coordinates."
+     */
+
     public double computeDistanceFromOrigin() {
         return Math.sqrt((x*x + y*y));
     }
@@ -47,12 +58,33 @@ public class Point {
 
     public static void main(String[] args) {
 
-        Point p1 = new Point(3,3);
-        System.out.println(p1.toString());
+        /**
+         * "Using Scanner class and Double conversion (parsing) from String to Double for the input system."
+         */
+        Scanner sc= new Scanner(System.in);
 
-        Point p2 = new Point(-2, 4);
+        System.out.print("Enter the number of first x: ");
+        double p1x = Double.parseDouble(sc.nextLine());
+        System.out.print("Enter the number of first y: ");
+        double p1y = Double.parseDouble(sc.nextLine());
+
+        /**
+         * "The input then used as the point of X and Y coordinate."
+         */
+        Point p1 = new Point(p1x,p1y);
+        System.out.println(p1);
+
+        System.out.print("Enter the number of second x: ");
+        double p2x = Double.parseDouble(sc.nextLine());
+        System.out.print("Enter the number of second y: ");
+        double p2y = Double.parseDouble(sc.nextLine());
+        
+        Point p2 = new Point(p2x,p2y);
         System.out.println(p2);
 
+        /**
+         * "The point then will be calculated by the algorithm of midpoint."
+         */
         System.out.println("p1 distance from origin: " + p1.computeDistanceFromOrigin());
 
         System.out.println("midpoint of p1 and p2: " + p1.computeMidpoint(p2));
